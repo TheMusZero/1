@@ -1,6 +1,14 @@
 import pygame
+
 from game_config import config
 from GameMain import GameMain
+
+
+def draw_number_level(screen, level):
+    font = pygame.font.Font(None, 32)
+    text = font.render(level, True, [0, 0, 0])
+    screen.blit(text, (0, 0))
+
 
 if __name__ == '__main__':
     level = input('Введите название уровня')
@@ -20,6 +28,7 @@ if __name__ == '__main__':
     while running:
         for event in pygame.event.get():
             game.on_event(event)
+            draw_number_level(screen, level)
             if event.type == pygame.QUIT:
                 running = False
         game.draw(dt)

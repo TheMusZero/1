@@ -1,4 +1,6 @@
 import pygame
+
+from Finish import Finish
 from LevelGroup import LevelGroup
 from LevelSprite import LevelSprite
 from game_config import config
