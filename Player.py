@@ -7,7 +7,7 @@ from Camera import camera
 
 class Player(LevelSprite):
     def __init__(self, row, col, *groups):
-        super().__init__(row, col, 'player.png', groups)
+        super().__init__(row, col, 'knight.png', groups)
         self.walls = None
         self.actions = {pygame.K_UP: self.move_up, pygame.K_DOWN: self.move_down,
                         pygame.K_LEFT: self.move_left,

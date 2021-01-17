@@ -4,7 +4,7 @@ from LevelSprite import LevelSprite
 
 class Grass(LevelSprite):
     def __init__(self, row, col, *groups):
-        super().__init__(row, col, 'grass.png', groups)
+        super().__init__(row, col, 'floor.png', groups)
 
 
 class GrassGroup(LevelGroup):
