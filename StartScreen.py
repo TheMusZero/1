@@ -38,7 +38,7 @@ class StartScreen:
         text_lines = ["ЗАСТАВКА", "Нажмите любую клавишу"]
         offset_x, offset_y = 0, 0
         line_offset = 10
-        color = pygame.Color('black')
+        color = pygame.Color('white')
         font_size = 40
         font = pygame.font.Font(None, font_size)
         text_rendered_lines = []
