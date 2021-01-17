@@ -1,7 +1,9 @@
 import pygame
+
+from Floor import FloorGroup
+from Lava import LavaGroup
 from game_config import config
 from AssetManager import assetManager
-from Grass import GrassGroup
 from Box import BoxGroup
 from Player import PlayerGroup
 from Camera import camera
@@ -12,7 +14,8 @@ class LevelScreen:
         self.screen = config.get_value('screen')
         level = self.load_level(config.get_value('level'))
         level = [list(line) for line in level]
-        self.groups = {'grass': GrassGroup(level), 'box': BoxGroup(level), 'player': PlayerGroup(level)}
+        self.groups = {'floor': FloorGroup(level), 'box': BoxGroup(level), 'player': PlayerGroup(level),
+                       'lava': LavaGroup(level)}
         self.groups['player'].set_walls(self.groups['box'])
         camera.update(self.groups['player'].player)
 
