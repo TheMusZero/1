@@ -7,8 +7,10 @@ from Camera import camera
 
 class Player(LevelSprite):
     def __init__(self, row, col, *groups):
-        super().__init__(row, col, 'knight.png', groups)
+        super().__init__(row, col, 'knight_right.png', groups)
         self.walls = None
+        self.row = row
+        self.col = col
         self.actions = {pygame.K_UP: self.move_up, pygame.K_DOWN: self.move_down,
                         pygame.K_LEFT: self.move_left,
                         pygame.K_RIGHT: self.move_right}
@@ -36,9 +38,11 @@ class Player(LevelSprite):
         self.row += 1
 
     def move_left(self):
+        LevelSprite.new_image(self, "knight_left.png")
         self.col -= 1
 
     def move_right(self):
+        LevelSprite.new_image(self, "knight_right.png")
         self.col += 1
 
     def move_action(self, direction, reverse=False):

@@ -18,3 +18,6 @@ class LevelSprite(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x, self.rect.y = self.get_coords()
+
+    def new_image(self, new_image):
+        self.image = assetManager.load_image(new_image)
