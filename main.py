@@ -2,12 +2,7 @@ import pygame
 
 from game_config import config
 from GameMain import GameMain
-
-
-def draw_number_level(screen, level):
-    font = pygame.font.Font(None, 32)
-    text = font.render(level, True, [0, 0, 0])
-    screen.blit(text, (0, 0))
+import NumberLevel
 
 
 if __name__ == '__main__':
@@ -28,11 +23,11 @@ if __name__ == '__main__':
     while running:
         for event in pygame.event.get():
             game.on_event(event)
-            draw_number_level(screen, level)
             if event.type == pygame.QUIT:
                 running = False
         game.draw(dt)
         game.update()
+        NumberLevel.draw_number_level(screen, level)
         pygame.display.flip()
         dt = clock.tick(fps)
     pygame.quit()
