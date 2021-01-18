@@ -10,6 +10,7 @@ class Player(LevelSprite):
     def __init__(self, row, col, *groups):
         super().__init__(row, col, 'knight_right.png', groups)
         self.walls = None
+        self.finish = None
         self.row = row
         self.col = col
         self.actions = {pygame.K_UP: self.move_up, pygame.K_DOWN: self.move_down,
@@ -27,6 +28,9 @@ class Player(LevelSprite):
 
     def set_walls(self, walls):
         self.walls = walls
+
+    def set_finish(self, finish):
+        self.finish = finish
 
     def set_size(self, width, height):
         self.width = width
@@ -66,6 +70,9 @@ class Player(LevelSprite):
             result = False
         if self.walls and pygame.sprite.spritecollideany(self, self.walls):
             result = False
+        if pygame.sprite.spritecollideany(self, self.finish):
+            print('finish!')
+            pygame.event.post(pygame.event.Event(config.get_value('level_end_event')))
         self.move_action(direction, reverse=True)
         return result
 
@@ -81,6 +88,9 @@ class PlayerGroup(LevelGroup):
 
     def set_walls(self, walls):
         self.player.set_walls(walls)
+
+    def set_finish(self, finish):
+        self.player.set_finish(finish)
 
     def on_key_pressed(self, key):
         self.player.move(key)

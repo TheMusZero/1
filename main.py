@@ -6,7 +6,6 @@ import NumberLevel
 
 
 if __name__ == '__main__':
-    level = input('Введите название уровня')
 
     pygame.init()
     pygame.display.set_caption('')
@@ -14,7 +13,6 @@ if __name__ == '__main__':
     size = width, height
     screen = pygame.display.set_mode(size)
     config.set_value('screen', screen)
-    config.set_value('level', level)
     clock = pygame.time.Clock()
     running = True
     game = GameMain()
@@ -27,7 +25,7 @@ if __name__ == '__main__':
                 running = False
         game.draw(dt)
         game.update()
-        NumberLevel.draw_number_level(screen, level)
+        NumberLevel.draw_number_level(screen, config.get_value('level'))
         pygame.display.flip()
         dt = clock.tick(fps)
     pygame.quit()

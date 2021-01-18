@@ -57,7 +57,7 @@ class Enemy(LevelSprite):
 
         self.counter += 1
         # у нас 60 кадров - значит враг будет перемещаться каждые 30 кадров - один раз в пол секунды.
-        if self.counter % 60 == 0:
+        if self.counter % 60  == 0:
             self.move()
 
 
