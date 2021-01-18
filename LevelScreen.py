@@ -14,7 +14,7 @@ from Enemy import EnemyGroup
 class LevelScreen:
     def __init__(self):
         self.screen = config.get_value('screen')
-        self.levels = ['lvl4', 'lvl5', 'lvl6']
+        self.levels = ['lvl1', 'lvl2', 'lvl4', 'lvl5', 'lvl6']
         config.set_value('level', self.levels[0])
         self.init_level()
 
